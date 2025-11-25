@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aesthetic galaxy hero website with meteor animations and ambient music">
+    <title>Aesthetic Galaxy Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="hero">
+        <img src="assets/bg-galaxy.jpg" alt="Galaxy background" class="hero-bg">
+
+        <!-- Meteors -->
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+
+        <!-- Stars -->
+        <div id="stars-container"></div>
+
+        <!-- Main content -->
+        <p id="fade-text">hello</p>
+
+        <ul class="menu">
+            <li onclick="window.open('https://instagram.com/imkinanti0813_', '_blank');">my girl</li>
+            <li onclick="window.open('https://instagram.com/_', '_blank');">my instagram</li>
+            <li onclick="window.open('https://wa.me/628157150215', '_blank');">contact me</li>
+        </ul>
+
+        <!-- Audio controls -->
+        <button class="audio-toggle" id="audioToggle" aria-label="Toggle background music" title="Toggle music">
+            🔊
+        </button>
+
+        <!-- Audio element -->
+        <audio id="bgMusic" loop>
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

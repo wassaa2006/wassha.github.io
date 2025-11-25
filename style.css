@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    animation: floatbg 20s ease-in-out infinite;
+}
+
+@keyframes floatbg {
+    0% { transform: scale(1.05) translateY(0px); }
+    50% { transform: scale(1.06) translateY(-10px); }
+    100% { transform: scale(1.05) translateY(0px); }
+}
+
+#fade-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+    opacity: 0;
+    text-shadow: 0 0 25px rgba(255,255,255,0.7), 0 0 50px rgba(120,150,255,0.6);
+    animation: slideUp 3.5s ease forwards;
+    z-index: 10;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    font-size: 22px;
+    font-weight: 500;
+    opacity: 0;
+    animation: slideUpMenu 6.5s ease forwards;
+    z-index: 10;
+}
+
+@keyframes slideUpMenu {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.menu li {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    transition: all 0.3s ease;
+}
+
+.menu li:hover {
+    color: #bcd6ff;
+    transform: scale(1.18) translateY(-3px);
+    text-shadow: 0 0 20px rgba(180, 210, 255, 0.9);
+}
+
+.meteor {
+    position: absolute;
+    width: 2px;
+    height: 90px;
+    background: linear-gradient(to bottom, white, rgba(255,255,255,0));
+    filter: blur(1px);
+    opacity: 0.75;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    animation: meteorFall 4s ease-in-out infinite;
+}
+
+.meteor:nth-child(1) { top: -60px; right: -20px; animation-delay: 0s; }
+.meteor:nth-child(2) { top: -80px; right: 40px; animation-delay: 1.2s; }
+.meteor:nth-child(3) { top: -40px; right: -70px; animation-delay: 2.5s; }
+.meteor:nth-child(4) { top: -100px; right: -10px; animation-delay: 3.3s; }
+.meteor:nth-child(5) { top: -55px; right: 90px; animation-delay: 4.7s; }
+.meteor:nth-child(6) { top: -120px; right: 20px; animation-delay: 5.6s; }
+.meteor:nth-child(7) { top: -70px; right: -50px; animation-delay: 6.8s; }
+.meteor:nth-child(8) { top: -90px; right: 150px; animation-delay: 7.5s; }
+
+@keyframes meteorFall {
+    0% {
+        transform: translate(0,0) rotate(45deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translate(-750px, 750px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.audio-toggle {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+    padding: 0;
+    font-size: 24px;
+}
+
+.audio-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    #fade-text {
+        font-size: 40px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 18px;
+        align-items: center;
+    }
+
+    .menu li:hover {
+        transform: scale(1.1) translateY(-2px);
+    }
+
+    .meteor:nth-child(n+5) {
+        display: none;
+    }
+
+    .audio-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    #fade-text {
+        font-size: 32px;
+    }
+
+    .menu {
+        font-size: 16px;
+        gap: 15px;
+        top: 50%;
+    }
+
+    .meteor {
+        display: none;
+    }
+}
